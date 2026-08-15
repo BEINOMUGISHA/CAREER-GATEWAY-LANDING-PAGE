@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Priority Sitemaps
+Sitemap: https://beinomugisha.github.io/CAREER-GATEWAY-LANDING-PAGE/sitemap.xml
