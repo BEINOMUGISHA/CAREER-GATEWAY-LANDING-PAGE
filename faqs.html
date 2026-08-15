@@ -4,7 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Frequently Asked Questions (FAQs) — Career Gateway Agency Uganda</title>
-<meta name="description" content="Find answers to common questions about job placement, hiring pre-screened staff, application processes, fees, and locations at Career Gateway Agency Western Uganda.">
+<meta name="description" content="Find answers to common questions about job placement, hiring pre-screened staff, registration fees, skill tiers, and locations at Career Gateway Agency Western Uganda. Directed by Nuwenyesiga Nimurod.">
+<meta name="keywords" content="Career Gateway Agency FAQs, recruitment questions Uganda, jobs Mbarara, Nuwenyesiga Nimurod, hiring agency Uganda">
+
+<!-- OpenGraph / Social Sharing -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="FAQs — Career Gateway Agency Uganda">
+<meta property="og:description" content="Find verified answers to job placement, hiring processes, pre-screening, and registration questions.">
+<meta property="og:url" content="https://beinomugisha.github.io/CAREER-GATEWAY-LANDING-PAGE/faqs.html">
+<meta property="og:image" content="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&h=630&q=80">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path d='M6 26V14L16 6L26 14V26' stroke='%23D9A73B' stroke-width='2.5' fill='none'/><path d='M12 26V18H20V26' stroke='%23F3EFE3' stroke-width='2.5' fill='%23243120'/></svg>">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -227,6 +239,21 @@
   .foot-grid a:hover{color:var(--gold-soft);}
   .foot-brand p{font-size:14px; max-width:34ch; color:#a2a694; margin-top:14px; line-height:1.6;}
   .foot-bottom{display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; padding-top:22px; font-size:13px; color:#848876;}
+
+  /* FLOATING STICKY WHATSAPP PILL */
+  .sticky-whatsapp-btn{
+    position:fixed; bottom:24px; right:24px; z-index:95;
+    background:#25D366; color:#0b2e13; padding:12px 20px; border-radius:999px;
+    box-shadow:0 8px 24px rgba(37,211,102,0.4); display:flex; align-items:center; gap:10px;
+    font-size:13.5px; font-weight:700; border:2px solid #fff; cursor:pointer;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .sticky-whatsapp-btn:hover{transform:translateY(-3px); box-shadow:0 12px 28px rgba(37,211,102,0.5);}
+  .sticky-whatsapp-btn .status-dot{width:9px; height:9px; background:#0b2e13; border-radius:50%; animation:pulseDot 1.6s infinite;}
+  @keyframes pulseDot{ 0%,100%{opacity:1; transform:scale(1);} 50%{opacity:0.4; transform:scale(1.4);} }
+  @media (max-width:480px){
+    .sticky-whatsapp-btn{padding:10px 16px; font-size:12.5px; bottom:16px; right:16px;}
+  }
 </style>
 </head>
 <body>
@@ -549,11 +576,17 @@
     </div>
 
     <div class="foot-bottom">
-      <span>© 2026 Career Gateway Agency. All rights reserved.</span>
+      <span>© 2026 Career Gateway Agency. All rights reserved. Directed by Nuwenyesiga Nimurod.</span>
       <span>Empowering Western Uganda's Workforce & Growing Businesses.</span>
     </div>
   </div>
 </footer>
+
+<!-- STICKY FLOATING WHATSAPP BUTTON -->
+<a href="https://wa.me/256755178667?text=Hello%20Director%20Nimurod,%20I%20have%20a%20question%20from%20the%20FAQs%20page" target="_blank" rel="noopener" class="sticky-whatsapp-btn" aria-label="Chat directly on WhatsApp">
+  <span class="status-dot"></span>
+  <span>Chat with Director Nimurod</span>
+</a>
 
 <script>
   // Mobile Nav Toggle
