@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Career Gateway Agency — Jobs & Talent in Western Uganda</title>
+<meta name="description" content="Career Gateway Agency connects job seekers across Western Uganda with employers who need qualified staff — health, NGO, sales, hospitality, and skilled trades.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --loam:#243120;
+    --loam-deep:#17211a;
+    --gold:#d9a73b;
+    --gold-soft:#e8c374;
+    --clay:#b5502e;
+    --mist:#eceee5;
+    --paper:#f7f7f2;
+    --ink:#1b1b16;
+    --ink-soft:#565947;
+    --cream-text:#f3efe3;
+    --line:#d8d9cd;
+    --radius:14px;
+    --maxw:1180px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.55;
+  }
+
+  h1,h2,h3,.display{
+    font-family:"Fraunces",Georgia,serif;
+    font-weight:600;
+    line-height:1.08;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+
+  a{color:inherit;text-decoration:none;}
+  img,svg{max-width:100%;display:block;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+  section{scroll-margin-top:72px;}
+
+  .eyebrow{
+    font-size:12.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    font-weight:700;
+    color:var(--clay);
+  }
+  .eyebrow.on-dark{color:var(--gold-soft);}
+
+  /* Buttons */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:13px 22px;
+    border-radius:999px;
+    font-weight:600;
+    font-size:15px;
+    border:1.5px solid transparent;
+    cursor:pointer;
+    transition:transform .15s ease, background .15s ease, border-color .15s ease;
+  }
+  .btn:focus-visible{outline:3px solid var(--gold); outline-offset:3px;}
+  .btn-primary{background:var(--gold); color:var(--loam-deep);}
+  .btn-primary:hover{background:var(--gold-soft); transform:translateY(-1px);}
+  .btn-outline{border-color:var(--cream-text); color:var(--cream-text);}
+  .btn-outline:hover{border-color:var(--gold); color:var(--gold-soft);}
+  .btn-outline.on-light{border-color:var(--ink); color:var(--ink);}
+  .btn-outline.on-light:hover{border-color:var(--clay); color:var(--clay);}
+  .btn-clay{background:var(--clay); color:var(--cream-text);}
+  .btn-clay:hover{background:#9c4527; transform:translateY(-1px);}
+
+  /* NAV */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(23,33,26,0.96);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  .navbar{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 24px;
+    max-width:var(--maxw); margin:0 auto;
+  }
+  .logo{
+    display:flex; align-items:center; gap:10px;
+    font-family:"Fraunces",serif; font-weight:700; font-size:19px;
+    color:var(--cream-text);
+  }
+  .logo .mark{
+    width:30px;height:30px;flex:none;
+  }
+  .navlinks{
+    display:flex; align-items:center; gap:28px;
+    font-size:14.5px; font-weight:600; color:var(--cream-text);
+  }
+  .navlinks a{opacity:0.88; padding:6px 2px; border-bottom:2px solid transparent;}
+  .navlinks a:hover{opacity:1; border-color:var(--gold);}
+  .navlinks a:focus-visible{outline:2px solid var(--gold); outline-offset:4px;}
+  .nav-cta{display:flex; align-items:center; gap:12px;}
+  .hamburger{
+    display:none; flex-direction:column; gap:5px; background:none; border:0; cursor:pointer; padding:8px;
+  }
+  .hamburger span{width:24px;height:2px;background:var(--cream-text);}
+
+  @media (max-width:860px){
+    .navlinks{
+      position:fixed; inset:64px 0 auto 0; flex-direction:column; align-items:flex-start;
+      background:var(--loam-deep); padding:20px 24px 28px; gap:18px;
+      transform:translateY(-130%); transition:transform .25s ease;
+      border-bottom:1px solid rgba(255,255,255,0.1);
+    }
+    .navlinks.open{transform:translateY(0);}
+    .hamburger{display:flex;}
+    .nav-cta .btn-outline{display:none;}
+  }
+
+  /* HERO */
+  .hero{
+    background:radial-gradient(1100px 480px at 80% -10%, #33452c 0%, var(--loam) 45%, var(--loam-deep) 100%);
+    color:var(--cream-text);
+    padding:64px 0 40px;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.05fr 0.95fr; gap:40px; align-items:center;
+  }
+  @media (max-width:900px){ .hero-grid{grid-template-columns:1fr;} }
+
+  .hero h1{font-size:clamp(34px,5vw,54px); margin:14px 0 18px;}
+  .hero p.lede{font-size:17.5px; color:#d9dccb; max-width:46ch; margin-bottom:28px;}
+  .hero-ctas{display:flex; flex-wrap:wrap; gap:14px; margin-bottom:34px;}
+
+  .hero-stats{display:flex; gap:28px; flex-wrap:wrap;}
+  .hero-stats div{min-width:110px;}
+  .hero-stats .num{font-family:"Fraunces",serif; font-size:26px; font-weight:700; color:var(--gold-soft);}
+  .hero-stats .lbl{font-size:12.5px; color:#c7cab8; letter-spacing:0.02em;}
+
+  /* Route illustration */
+  .route-card{
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.12);
+    border-radius:20px;
+    padding:20px 18px 12px;
+  }
+  .route-caption{font-size:12.5px; color:#c7cab8; text-align:center; margin-top:6px; letter-spacing:0.03em;}
+
+  /* STAT STRIP */
+  .strip{
+    background:var(--mist);
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    padding:18px 0;
+  }
+  .strip .wrap{display:flex; flex-wrap:wrap; gap:10px 30px; justify-content:space-between; font-size:13.5px; color:var(--ink-soft);}
+  .strip strong{color:var(--ink); font-weight:700;}
+
+  /* SECTION HEADERS */
+  .section-head{max-width:640px; margin-bottom:36px;}
+  .section-head h2{font-size:clamp(26px,3.4vw,36px); margin-top:10px;}
+  .section-head p{color:var(--ink-soft); font-size:15.5px; margin-top:12px;}
+
+  section.pad{padding:76px 0;}
+
+  /* CATEGORY GRID */
+  .cat-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:16px;
+  }
+  @media (max-width:900px){ .cat-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:520px){ .cat-grid{grid-template-columns:1fr;} }
+  .cat-card{
+    background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);
+    padding:22px 20px; transition:border-color .15s ease, transform .15s ease;
+  }
+  .cat-card:hover{border-color:var(--gold); transform:translateY(-2px);}
+  .cat-card .ic{font-size:26px; margin-bottom:12px;}
+  .cat-card h3{font-size:17px; font-weight:600; margin-bottom:6px;}
+  .cat-card p{font-size:13.5px; color:var(--ink-soft); margin:0;}
+
+  /* HOW IT WORKS */
+  .tabs{background:var(--loam); border-radius:22px; padding:44px 32px; color:var(--cream-text);}
+  .tab-toggle{display:inline-flex; background:rgba(255,255,255,0.08); border-radius:999px; padding:4px; margin-bottom:32px;}
+  .tab-toggle button{
+    border:0; background:none; color:#d9dccb; font-weight:600; font-size:14px;
+    padding:10px 20px; border-radius:999px; cursor:pointer;
+  }
+  .tab-toggle button.active{background:var(--gold); color:var(--loam-deep);}
+  .tab-toggle button:focus-visible{outline:2px solid var(--gold-soft); outline-offset:2px;}
+  .steps{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  @media (max-width:800px){ .steps{grid-template-columns:1fr;} }
+  .step .n{font-family:"Fraunces",serif; font-size:34px; color:var(--gold-soft); font-weight:700;}
+  .step h3{font-size:17.5px; margin:10px 0 8px; font-weight:600;}
+  .step p{font-size:14px; color:#c7cab8; margin:0;}
+  .tab-panel{display:none;}
+  .tab-panel.active{display:block;}
+
+  /* FEATURED ROLES */
+  .role-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
+  @media (max-width:900px){ .role-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:600px){ .role-grid{grid-template-columns:1fr;} }
+  .role-card{
+    border:1px solid var(--line); border-radius:var(--radius); padding:22px;
+    display:flex; flex-direction:column; gap:10px; background:var(--paper);
+  }
+  .role-tag{
+    align-self:flex-start; font-size:11.5px; font-weight:700; letter-spacing:0.04em;
+    text-transform:uppercase; background:#efe1c4; color:#8a5e17; padding:4px 10px; border-radius:999px;
+  }
+  .role-card h3{font-size:17px; font-weight:600;}
+  .role-meta{font-size:13px; color:var(--ink-soft);}
+  .role-card .btn{margin-top:8px; align-self:flex-start; padding:9px 16px; font-size:13.5px;}
+
+  /* WHY US */
+  .why-grid{display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start;}
+  @media (max-width:800px){ .why-grid{grid-template-columns:1fr;} }
+  .quote-block{
+    background:var(--mist); border-left:4px solid var(--clay); border-radius:0 var(--radius) var(--radius) 0;
+    padding:22px 24px; font-size:16.5px; font-style:italic; color:var(--ink); margin-bottom:16px;
+  }
+  .checklist{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:16px;}
+  .checklist li{display:flex; gap:12px; font-size:15px; color:var(--ink-soft);}
+  .checklist li::before{content:"✓"; color:var(--clay); font-weight:700; flex:none;}
+
+  /* LOCATIONS */
+  .chip-row{display:flex; flex-wrap:wrap; gap:10px;}
+  .chip{
+    border:1px solid var(--line); border-radius:999px; padding:9px 16px; font-size:13.5px; font-weight:600; color:var(--ink-soft);
+    background:var(--paper);
+  }
+  .chip.filled{background:var(--loam); color:var(--cream-text); border-color:var(--loam);}
+
+  /* CTA BAND */
+  .cta-band{
+    background:linear-gradient(120deg, var(--clay), #8a3c22);
+    color:var(--cream-text); border-radius:24px; padding:48px 40px;
+    display:flex; justify-content:space-between; align-items:center; gap:24px; flex-wrap:wrap;
+  }
+  .cta-band h2{font-size:clamp(22px,3vw,30px); max-width:520px;}
+  .cta-band .btn-primary{background:var(--cream-text); color:var(--clay);}
+  .cta-band .btn-primary:hover{background:#fff;}
+
+  /* FOOTER */
+  footer{background:var(--loam-deep); color:#c7cab8; padding:56px 0 28px; margin-top:20px;}
+  .foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:32px; padding-bottom:32px; border-bottom:1px solid rgba(255,255,255,0.1);}
+  @media (max-width:760px){ .foot-grid{grid-template-columns:1fr;} }
+  .foot-grid h4{color:var(--cream-text); font-size:13.5px; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:14px;}
+  .foot-grid ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px; font-size:14px;}
+  .foot-grid a:hover{color:var(--gold-soft);}
+  .foot-brand p{font-size:14px; max-width:34ch; color:#a9ac99; margin-top:12px;}
+  .foot-bottom{display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; padding-top:22px; font-size:12.5px; color:#8b8e7c;}
+
+  .sr-only{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0);}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="navbar">
+    <a href="#home" class="logo">
+      <svg class="mark" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M6 26V14L16 6L26 14V26" stroke="#D9A73B" stroke-width="2.2" stroke-linejoin="round"/>
+        <path d="M12 26V18H20V26" stroke="#F3EFE3" stroke-width="2.2" stroke-linejoin="round"/>
+      </svg>
+      Career Gateway Agency
+    </a>
+    <nav class="navlinks" id="navlinks">
+      <a href="#jobs">Find Jobs</a>
+      <a href="#employers">For Employers</a>
+      <a href="#how">How It Works</a>
+      <a href="#locations">Locations</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-outline">Talk to us</a>
+      <button class="hamburger" id="hamburgerBtn" aria-expanded="false" aria-controls="navlinks" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="home">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow on-dark">Recruitment across Western Uganda</p>
+        <h1>The road from your skills<br>to your next job.</h1>
+        <p class="lede">Career Gateway Agency connects job seekers across Mbarara, Kabale, Fort Portal, Hoima and beyond with employers who need qualified, reliable staff — no long forms, no gatekeeping, just a direct line to real openings.</p>
+        <div class="hero-ctas">
+          <a href="#jobs" class="btn btn-primary">Browse open roles</a>
+          <a href="#employers" class="btn btn-outline">Hire through us</a>
+        </div>
+        <div class="hero-stats">
+          <div><div class="num">7+</div><div class="lbl">Towns served</div></div>
+          <div><div class="num">8</div><div class="lbl">Industries covered</div></div>
+          <div><div class="num">2–50</div><div class="lbl">Hires per client/yr</div></div>
+        </div>
+      </div>
+
+      <div class="route-card">
+        <svg viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="routeTitle">
+          <title id="routeTitle">Illustrated route connecting Kabale, Mbarara, Fort Portal, Hoima and Kampala to the Career Gateway</title>
+          <path d="M40 300 C 100 260, 90 200, 150 190 S 230 140, 210 90 S 300 40, 340 60 S 420 90, 440 60"
+                fill="none" stroke="#3b4a34" stroke-width="14" stroke-linecap="round"/>
+          <path d="M40 300 C 100 260, 90 200, 150 190 S 230 140, 210 90 S 300 40, 340 60 S 420 90, 440 60"
+                fill="none" stroke="#d9a73b" stroke-width="2.5" stroke-dasharray="2 12" stroke-linecap="round"/>
+
+          <g font-family="-apple-system,Segoe UI,Roboto,sans-serif" font-size="12" fill="#e8e9db">
+            <circle cx="40" cy="300" r="7" fill="#b5502e"/>
+            <text x="52" y="304">Kabale</text>
+
+            <circle cx="150" cy="190" r="7" fill="#d9a73b"/>
+            <text x="162" y="194">Mbarara</text>
+
+            <circle cx="210" cy="90" r="7" fill="#d9a73b"/>
+            <text x="222" y="94">Fort Portal</text>
+
+            <circle cx="340" cy="60" r="7" fill="#d9a73b"/>
+            <text x="298" y="42">Hoima</text>
+
+            <circle cx="440" cy="60" r="8" fill="#f3efe3"/>
+            <text x="392" y="82">Kampala</text>
+          </g>
+
+          <!-- gateway / arch marker -->
+          <g transform="translate(440,60)">
+            <path d="M-16 0 V-26 A16 16 0 0 1 16 -26 V0" fill="none" stroke="#f3efe3" stroke-width="3"/>
+          </g>
+        </svg>
+        <p class="route-caption">One route, many towns — every stop is a placement waiting to happen.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="strip">
+    <div class="wrap">
+      <span><strong>Health & NGO</strong> · nurses, program officers, lab techs</span>
+      <span><strong>Sales & Hospitality</strong> · reps, front desk, hotel staff</span>
+      <span><strong>Skilled trades</strong> · drivers, welders, security, chefs</span>
+      <span><strong>Graduate entry</strong> · banking, telco, retail trainees</span>
+    </div>
+  </div>
+
+  <!-- JOB CATEGORIES -->
+  <section class="pad" id="jobs">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Find jobs</p>
+        <h2>Openings across the industries that hire most</h2>
+        <p>Every listing comes from a verified employer — no fake postings, no application fees.</p>
+      </div>
+
+      <div class="cat-grid">
+        <div class="cat-card"><div class="ic">🩺</div><h3>Health & NGO</h3><p>Clinics, hospitals and program roles across Mbarara and Kabale.</p></div>
+        <div class="cat-card"><div class="ic">🏨</div><h3>Hospitality</h3><p>Hotels, lodges and restaurants hiring front-of-house and back-of-house staff.</p></div>
+        <div class="cat-card"><div class="ic">📈</div><h3>Sales & Marketing</h3><p>Field reps, customer care and business development roles.</p></div>
+        <div class="cat-card"><div class="ic">🔧</div><h3>Skilled Trades</h3><p>Drivers, welders, security officers and technicians.</p></div>
+        <div class="cat-card"><div class="ic">🏦</div><h3>Banking & Finance</h3><p>Entry and mid-level roles with banks and SACCOs.</p></div>
+        <div class="cat-card"><div class="ic">🎓</div><h3>Education</h3><p>Teaching and administrative posts at schools and training centres.</p></div>
+        <div class="cat-card"><div class="ic">🌾</div><h3>Agriculture</h3><p>Agribusiness, cooperatives and agro-processing employers.</p></div>
+        <div class="cat-card"><div class="ic">🏗️</div><h3>Construction</h3><p>Site supervisors, laborers and skilled construction crews.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="pad" id="how">
+    <div class="wrap">
+      <div class="tabs">
+        <p class="eyebrow on-dark">How it works</p>
+        <h2 style="color:var(--cream-text); font-size:clamp(24px,3vw,32px); margin:10px 0 28px;">Three steps, either side of the table</h2>
+
+        <div class="tab-toggle" role="tablist" aria-label="Choose audience">
+          <button class="active" role="tab" aria-selected="true" data-tab="seekers">For Job Seekers</button>
+          <button role="tab" aria-selected="false" data-tab="employers">For Employers</button>
+        </div>
+
+        <div class="tab-panel active" id="panel-seekers">
+          <div class="steps">
+            <div class="step"><div class="n">01</div><h3>Tell us what you're looking for</h3><p>Share your skills, experience and where you can work — by phone, WhatsApp, or in person.</p></div>
+            <div class="step"><div class="n">02</div><h3>We match you to real openings</h3><p>We only put you forward for roles you're actually qualified for and interested in.</p></div>
+            <div class="step"><div class="n">03</div><h3>You interview and start work</h3><p>We prep you for the interview and follow up until you're settled into the role.</p></div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="panel-employers">
+          <div class="steps">
+            <div class="step"><div class="n">01</div><h3>Tell us who you need</h3><p>Share the role, the must-have skills, and your timeline — no long briefs required.</p></div>
+            <div class="step"><div class="n">02</div><h3>We screen before you see a CV</h3><p>You only meet candidates who are already qualified and genuinely interested.</p></div>
+            <div class="step"><div class="n">03</div><h3>You hire, we follow up</h3><p>We check in after placement to make sure the fit is working for both sides.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED ROLES -->
+  <section class="pad" style="padding-top:0;">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Sample openings</p>
+        <h2>A taste of what's currently open</h2>
+        <p>Message us on WhatsApp with the role name and we'll send full details.</p>
+      </div>
+
+      <div class="role-grid">
+        <div class="role-card">
+          <span class="role-tag">Health</span>
+          <h3>Registered Nurse</h3>
+          <p class="role-meta">Mbarara · Full-time · 1M–1.8M UGX</p>
+          <a href="#contact" class="btn btn-clay">Enquire</a>
+        </div>
+        <div class="role-card">
+          <span class="role-tag">Hospitality</span>
+          <h3>Front Desk Officer</h3>
+          <p class="role-meta">Fort Portal · Full-time · 400k–650k UGX</p>
+          <a href="#contact" class="btn btn-clay">Enquire</a>
+        </div>
+        <div class="role-card">
+          <span class="role-tag">Sales</span>
+          <h3>Field Sales Rep</h3>
+          <p class="role-meta">Kabale · Contract · 500k + commission</p>
+          <a href="#contact" class="btn btn-clay">Enquire</a>
+        </div>
+        <div class="role-card">
+          <span class="role-tag">Skilled Trade</span>
+          <h3>Class B Driver</h3>
+          <p class="role-meta">Hoima · Full-time · 600k–800k UGX</p>
+          <a href="#contact" class="btn btn-clay">Enquire</a>
+        </div>
+        <div class="role-card">
+          <span class="role-tag">NGO</span>
+          <h3>Program Officer</h3>
+          <p class="role-meta">Mbarara · Contract · 1.2M–2M UGX</p>
+          <a href="#contact" class="btn btn-clay">Enquire</a>
+        </div>
+        <div class="role-card">
+          <span class="role-tag">Graduate</span>
+          <h3>Bank Teller Trainee</h3>
+          <p class="role-meta">Kampala · Full-time · 700k–900k UGX</p>
+          <a href="#contact" class="btn btn-clay">Enquire</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOR EMPLOYERS / WHY US -->
+  <section class="pad" id="employers" style="background:var(--mist);">
+    <div class="wrap why-grid">
+      <div>
+        <p class="eyebrow">For employers</p>
+        <h2 style="font-size:clamp(24px,3vw,32px); margin:10px 0 20px;">You don't have time to screen 200 CVs.<br>We do.</h2>
+        <div class="quote-block">"We need qualified staff fast — and we need someone else to do the screening."</div>
+        <p style="color:var(--ink-soft); font-size:15px;">That's the gap we fill for SMEs, NGOs, schools, hospitals, hotels and growing businesses across Western Uganda.</p>
+        <a href="#contact" class="btn btn-clay" style="margin-top:20px;">Post a vacancy</a>
+      </div>
+      <ul class="checklist">
+        <li>We pre-screen every candidate before you see a CV</li>
+        <li>Focused on Western Uganda first, with Kampala and nationwide reach</li>
+        <li>Built for high-turnover roles like sales, front desk and customer care</li>
+        <li>No sign-up required — reach us directly by phone or WhatsApp</li>
+        <li>Follow-up after placement to confirm the hire is working out</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- LOCATIONS -->
+  <section class="pad" id="locations">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Where we work</p>
+        <h2>Rooted in Western Uganda, reaching further</h2>
+      </div>
+      <div class="chip-row">
+        <span class="chip filled">Mbarara</span>
+        <span class="chip filled">Kabale</span>
+        <span class="chip filled">Fort Portal</span>
+        <span class="chip filled">Hoima</span>
+        <span class="chip">Kampala</span>
+        <span class="chip">Gulu</span>
+        <span class="chip">Arua</span>
+        <span class="chip">Diaspora / Remote</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="pad" style="padding-top:0;">
+    <div class="wrap">
+      <div class="cta-band">
+        <h2>Ready to find your next hire — or your next job?</h2>
+        <a href="#contact" class="btn btn-primary">Get in touch</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="logo" style="color:var(--cream-text);">
+          <svg class="mark" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M6 26V14L16 6L26 14V26" stroke="#D9A73B" stroke-width="2.2" stroke-linejoin="round"/>
+            <path d="M12 26V18H20V26" stroke="#F3EFE3" stroke-width="2.2" stroke-linejoin="round"/>
+          </svg>
+          Career Gateway Agency
+        </div>
+        <p>Connecting job seekers and employers across Western Uganda — no sign-up, just a direct line to real opportunities.</p>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <ul>
+          <li><a href="https://wa.me/256700000000" target="_blank" rel="noopener">WhatsApp: +256 700 000 000</a></li>
+          <li><a href="tel:+256700000000">Call: +256 700 000 000</a></li>
+          <li><a href="mailto:hello@careergatewayagency.ug">hello@careergatewayagency.ug</a></li>
+          <li>Mbarara, Western Uganda</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#jobs">Find Jobs</a></li>
+          <li><a href="#employers">For Employers</a></li>
+          <li><a href="#how">How It Works</a></li>
+          <li><a href="#locations">Locations</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Career Gateway Agency. All rights reserved.</span>
+      <span>Built for Western Uganda's job seekers and employers.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav toggle
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const navlinks = document.getElementById('navlinks');
+  hamburgerBtn.addEventListener('click', () => {
+    const isOpen = navlinks.classList.toggle('open');
+    hamburgerBtn.setAttribute('aria-expanded', isOpen);
+  });
+  navlinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navlinks.classList.remove('open');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Tabs: job seekers / employers
+  const tabButtons = document.querySelectorAll('.tab-toggle button');
+  tabButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabButtons.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected','true');
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('panel-' + btn.dataset.tab).classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
